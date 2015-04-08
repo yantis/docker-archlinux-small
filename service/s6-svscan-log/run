@@ -1,0 +1,8 @@
+#!/usr/bin/execlineb -P
+
+if { mkdir -p /tmp/uncaught-logs }
+redirfd -w 2 /dev/console
+redirfd -rnb 0 fifo
+exec -c
+s6-log -bpt /tmp/uncaught-logs
+
