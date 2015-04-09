@@ -5,47 +5,45 @@
 FROM yantis/archlinux-tiny
 MAINTAINER Jonathan Yantis <yantis@yantis.net>
 
-RUN pacman -Syyu --noconfirm
-
-ENV TERM xterm
-
-    # Allow passwordedless sudo for now but we will remove it later.
-RUN pacman --noconfirm -S sudo && \
-    echo "docker ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
-
-RUN pacman --noconfirm -S zsh wget file patch diffutils s6 execline htop mlocate expac vim-tiny gzip tar \
-            shadow util-linux sed grep iputils
-
-# Add in the s6 stuff since it is small for optional usage.
 ADD service /service
 ADD init /init
-RUN ln -s /bin/true /service/s6-svscan-log/finish
 
-# Install yaourt for easy AUR installs
-RUN pacman -S --noconfirm yaourt binutils gcc make autoconf fakeroot
+    # Force a refresh of all the packages even if already up to date.
+RUN pacman -Syyu --noconfirm && \
 
-USER docker
+    # Allow passwordedless sudo for now but we will remove it later.
+    pacman --noconfirm -S sudo && \
+    echo "docker ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers && \
 
-# Install procps without systemd.
-RUN yaourt -S --noconfirm procps-ng-nosystemd
+    # Install our programs
+    pacman --noconfirm -S zsh wget file patch diffutils s6 execline htop \
+            mlocate expac vim-tiny gzip tar shadow util-linux sed grep iputils && \
 
-# Install oh-my-zsh
-RUN yaourt -S oh-my-zsh-git --noconfirm && \
-    cp /usr/share/oh-my-zsh/zshrc /home/docker/.zshrc
+    # Add in the s6 stuff since it is small for optional usage.
+    ln -s /bin/true /service/s6-svscan-log/finish && \
 
-# Setup root enviroment to be zsh
-USER root
-WORKDIR /
-RUN cp /usr/share/oh-my-zsh/zshrc /root/.zshrc && \
+    # Install yaourt for easy AUR installs
+    pacman -S --noconfirm yaourt binutils gcc make autoconf fakeroot && \
+
+    # Install procps without systemd.
+    runuser -l docker -c "yaourt --noconfirm -S procps-ng-nosystemd" && \
+
+    # Install oh-my-zsh from the AUR as it is my PKGBUILD with some fixes the other doesn't have.
+    runuser -l docker -c "yaourt --noconfirm -S aur/oh-my-zsh-git" && \
+    runuser -l docker -c "cp /usr/share/oh-my-zsh/zshrc /home/docker/.zshrc" && \
+
+    # Setup root enviroment to be zsh
+    cp /usr/share/oh-my-zsh/zshrc /root/.zshrc && \
     chsh -s /usr/bin/zsh root && \
-    chsh -s /usr/bin/zsh docker
+    chsh -s /usr/bin/zsh docker && \
 
-RUN pacman --noconfirm -Rs yaourt binutils gcc make autoconf fakeroot
+    # Remove build dependencies.
+    pacman --noconfirm -Rs yaourt binutils gcc make autoconf fakeroot git && \
 
-##########################################################################
-# CLEAN UP SECTION - THIS GOES AT THE END                                #
-##########################################################################
-RUN localepurge && \
+    ##########################################################################
+    # CLEAN UP SECTION - THIS GOES AT THE END                                #
+    ##########################################################################
+    localepurge && \
 
     # Remove info, man and docs
     rm -r /usr/share/info/* && \
@@ -59,14 +57,12 @@ RUN localepurge && \
     find /usr/share/terminfo/. ! -name "*xterm*" ! -name "*screen*" ! -name "*screen*" -type f -delete && \
 
     # Remove anything left in temp.
-    rm -r /tmp/*
+    rm -r /tmp/* && \
 
-RUN bash -c "echo 'y' | pacman -Scc >/dev/null 2>&1" && \
+    bash -c "echo 'y' | pacman -Scc >/dev/null 2>&1" && \
     paccache -rk0 >/dev/null 2>&1 &&  \
     pacman-optimize && \
     rm -r /var/lib/pacman/sync/*
+    #########################################################################
 
-#########################################################################
-
-WORKDIR /
 CMD /usr/bin/zsh
