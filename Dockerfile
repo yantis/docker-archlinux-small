@@ -17,12 +17,12 @@ RUN pacman -Syyu --noconfirm && \
 
     # Install our programs
     pacman --noconfirm -S zsh wget file patch diffutils s6 execline htop \
-            mlocate expac vim-tiny gzip tar shadow util-linux sed grep iputils && \
+            mlocate expac gzip tar shadow util-linux sed grep iputils && \
 
     # Add in the s6 stuff since it is small for optional usage.
     ln -s /bin/true /service/s6-svscan-log/finish && \
 
-    # Install yaourt for easy AUR installs
+    # Install yaourt for easy AUR installs but remove later. To much bloat.
     pacman -S --noconfirm yaourt binutils gcc make autoconf fakeroot && \
 
     # Install procps without systemd.
@@ -36,6 +36,14 @@ RUN pacman -Syyu --noconfirm && \
     cp /usr/share/oh-my-zsh/zshrc /root/.zshrc && \
     chsh -s /usr/bin/zsh root && \
     chsh -s /usr/bin/zsh docker && \
+
+    # Install vim-tiny. Normally we would get it from the herecura repo
+    # But it blocks dockerhub for some reason so host it in S3.
+    # TODO: Look into pulling and building from:
+    # https://github.com/herecura/herecura/tree/master/stable/vim
+    wget --content-disposition "http://yantis-scripts.s3.amazonaws.com/vim-tiny-7.4.692-1-x86_64.pkg.tar.xz" && \
+    pacman --noconfirm -U vim-tiny-7.4.692-1-x86_64.pkg.tar.xz && \
+    rm vim-tiny-7.4.692-1-x86_64.pkg.tar.xz && \
 
     # Remove build dependencies.
     pacman --noconfirm -Rs yaourt binutils gcc make autoconf fakeroot git && \
