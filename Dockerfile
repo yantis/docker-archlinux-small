@@ -17,7 +17,7 @@ RUN pacman -Syyu --noconfirm && \
 
     # Install our programs
     pacman --noconfirm -S zsh wget file patch diffutils s6 execline htop \
-            mlocate expac gzip tar shadow util-linux sed grep iputils && \
+            mlocate expac gzip tar shadow util-linux sed grep iputils which && \
 
     # Add in the s6 stuff since it is small for optional usage.
     ln -s /bin/true /service/s6-svscan-log/finish && \
