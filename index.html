@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Docker-archlinux-small by yantis</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">Docker-archlinux-small</h1>
+      <h2 class="project-tagline">126 MB Docker Container - Arch Linux, ArchAssault, BlackArch, BBQLinux and more.</h2>
+      <a href="https://github.com/yantis/docker-archlinux-small" class="btn">View on GitHub</a>
+      <a href="https://github.com/yantis/docker-archlinux-small/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/yantis/docker-archlinux-small/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <h1>
+<a id="archlinux-small" class="anchor" href="#archlinux-small" aria-hidden="true"><span class="octicon octicon-link"></span></a>archlinux-small</h1>
+
+<p>On Docker hub <a href="https://registry.hub.docker.com/u/yantis/archlinux-small/">archlinux-small</a>
+on Github <a href="https://github.com/yantis/docker-archlinux-small">docker-archlinux-small</a></p>
+
+<p>This small layer adds 30MB to the 97MB Arch Linux base container <a href="https://registry.hub.docker.com/u/yantis/archlinux-tiny/">archlinux-tiny</a>
+Still extremely small compared to other Arch Linux containers with some more features and packages above the tiny one.
+The goal this was to have a more usable base that just worked without having to install dependencies for normal tasks as well as some normal tools I like working with.
+It also has some amazing repos like <a href="https://www.archassault.org">ArchAssault</a>,
+<a href="http://blackarch.org">BlackArch</a> and <a href="http://bbqlinux.org">BBQLinux</a>.</p>
+
+<h2>
+<a id="added-features" class="anchor" href="#added-features" aria-hidden="true"><span class="octicon octicon-link"></span></a>Added Features</h2>
+
+<ul>
+<li>Lots of linux utlities that were not included in the tiny version. See list below.</li>
+<li>util-linux &amp; iputils</li>
+<li>user:docker password:docker with password-less sudo.</li>
+<li>locate/updatedb (mlocate)</li>
+<li>
+<a href="http://skarnet.org/software/s6/">S6 supervisor</a> - (<a href="https://github.com/amylum/s6">Les Aker's code</a>)</li>
+<li><a href="http://skarnet.org/software/execline/">execline</a></li>
+<li>
+<a href="http://www.zsh.org/">zsh</a> with <a href="https://github.com/robbyrussell/oh-my-zsh">oh-my-zsh</a> setup for both root and docker users.</li>
+<li><a href="http://hisham.hm/htop/">htop</a></li>
+<li>vim (<a href="http://askubuntu.com/questions/104138/what-features-does-vim-tiny-have">vim-tiny</a>)</li>
+</ul>
+
+<h2>
+<a id="features-from-archlinux-tiny" class="anchor" href="#features-from-archlinux-tiny" aria-hidden="true"><span class="octicon octicon-link"></span></a>Features (from <a href="https://registry.hub.docker.com/u/yantis/archlinux-tiny/">archlinux-tiny</a>)</h2>
+
+<ul>
+<li>Arch Linux 64 bit core, extra, community repos</li>
+<li>Arch Linux 32 bit multilib repo</li>
+<li>
+<a href="http://bbqlinux.org">BBQLinux</a> repo for Android Developers.</li>
+<li>
+<a href="https://www.archassault.org">ArchAssault</a> repo for penetration testers and security professionals.</li>
+<li>
+<a href="http://blackarch.org">BlackArch</a> repo for penetration testers and security professionals.</li>
+<li>
+<a href="https://github.com/archlinuxcn">Arch Linux CN</a> repo </li>
+<li>
+<a href="http://repo.herecura.eu/herecura-stable/x86_64/">Hercura</a> vim-tiny and other goodies.</li>
+<li>
+<a href="https://wiki.archlinux.org/index.php/Reflector">Reflector</a> mirror optimized for western USA.</li>
+<li>cower and package-query for interacting with the AUR. </li>
+<li>compact (removal of a lot of unneeded stuff that pacman will auto re-install if needed)</li>
+</ul>
+
+<p>As an example this is a search for chrome with the above repos installed:
+<img src="http://yantis-scripts.s3.amazonaws.com/screenshot_20150407-030717.jpg" alt=""></p>
+
+<h2>
+<a id="added-packages" class="anchor" href="#added-packages" aria-hidden="true"><span class="octicon octicon-link"></span></a>Added packages</h2>
+
+<ul>
+<li>diffutils 3.3-2</li>
+<li>execline 2.1.1.0_15-1</li>
+<li>expac 4-3</li>
+<li>file 5.22-1</li>
+<li>gcc-libs 4.9.2-4</li>
+<li>gdbm 1.11-1</li>
+<li>glib2 2.42.2-1</li>
+<li>grep 2.21-2</li>
+<li>gzip 1.6-1</li>
+<li>htop 1.0.3-2</li>
+<li>iputils 20121221-3</li>
+<li>less 471-1</li>
+<li>libsystemd 218-2</li>
+<li>lz4 128-1</li>
+<li>mlocate 0.26-5</li>
+<li>oh-my-zsh-git 3110.75b9030-1</li>
+<li>patch 2.7.5-1</li>
+<li>pcre 8.36-2</li>
+<li>procps-ng-nosystemd 3.3.10-1</li>
+<li>s6 2.1.3.0_22-1</li>
+<li>sed 4.2.2-3</li>
+<li>shadow 4.2.1-3</li>
+<li>sudo 1.8.13-1</li>
+<li>sysfsutils 2.1.0-9</li>
+<li>tar 1.28-1</li>
+<li>util-linux 2.26.1-3</li>
+<li>vim-tiny 7.4.691-1</li>
+<li>wget 1.16.3-1</li>
+<li>zsh 5.0.7-1</li>
+</ul>
+
+<h2>
+<a id="included-from-archlinux-tiny" class="anchor" href="#included-from-archlinux-tiny" aria-hidden="true"><span class="octicon octicon-link"></span></a>Included from <a href="https://registry.hub.docker.com/u/yantis/archlinux-tiny/">archlinux-tiny</a>
+</h2>
+
+<ul>
+<li>acl 2.2.52-2</li>
+<li>archassault-keyring 20140202-3</li>
+<li>archassault-mirrorlist 20150214-1</li>
+<li>archlinux-keyring 20150212-1</li>
+<li>archlinuxcn-keyring 20141118-1</li>
+<li>attr 2.4.47-1</li>
+<li>bash 4.3.033-1</li>
+<li>bbqlinux-keyring 20131129-1</li>
+<li>blackarch-keyring 20140118-3</li>
+<li>bzip2 1.0.6-5</li>
+<li>ca-certificates 20140923-9</li>
+<li>ca-certificates-cacert 20140824-2</li>
+<li>ca-certificates-mozilla 3.18-3</li>
+<li>ca-certificates-utils 20140923-9</li>
+<li>coreutils 8.23-1</li>
+<li>cower 12-2</li>
+<li>cracklib 2.9.1-1</li>
+<li>curl 7.41.0-1</li>
+<li>e2fsprogs 1.42.12-2</li>
+<li>expat 2.1.0-4</li>
+<li>filesystem 2015.02-1</li>
+<li>findutils 4.4.2-6</li>
+<li>gawk 4.1.1-1</li>
+<li>gcc-libs 4.9.2-4</li>
+<li>glibc 2.21-2</li>
+<li>gmp 6.0.0-2</li>
+<li>gnupg 2.1.2-3</li>
+<li>gnutls 3.3.14-2</li>
+<li>gpgme 1.5.3-1</li>
+<li>iana-etc 2.30-4</li>
+<li>keyutils 1.5.9-1</li>
+<li>krb5 1.13.1-1</li>
+<li>libarchive 3.1.2-8</li>
+<li>libassuan 2.1.3-1</li>
+<li>libcap 2.24-2</li>
+<li>libffi 3.2.1-1</li>
+<li>libgcrypt 1.6.3-2</li>
+<li>libgpg-error 1.18-1</li>
+<li>libidn 1.30-1</li>
+<li>libksba 1.3.2-1</li>
+<li>libldap 2.4.40-2</li>
+<li>libsasl 2.1.26-7</li>
+<li>libssh2 1.4.3-2</li>
+<li>libtasn1 4.4-1</li>
+<li>libtirpc 0.2.5-1</li>
+<li>libutil-linux 2.26.1-3</li>
+<li>licenses 20140629-1</li>
+<li>linux-api-headers 3.18.5-1</li>
+<li>localepurge 0.7.3.4-1</li>
+<li>lzo 2.09-1</li>
+<li>mpfr 3.1.2.p11-1</li>
+<li>ncurses 5.9-7</li>
+<li>nettle 2.7.1-1</li>
+<li>npth 1.1-1</li>
+<li>openssl 1.0.2.a-1</li>
+<li>p11-kit 0.23.1-2</li>
+<li>package-query 1.5-2</li>
+<li>pacman 4.2.1-1</li>
+<li>pacman-mirrorlist 20150315-1</li>
+<li>pam 1.1.8-5</li>
+<li>pambase 20130928-1</li>
+<li>pinentry 0.9.0-1</li>
+<li>pth 2.0.7-5</li>
+<li>readline 6.3.006-1</li>
+<li>texinfo-fake 1.2-1</li>
+<li>tzdata 2015b-1</li>
+<li>xz 5.2.1-1</li>
+<li>yajl 2.1.0-1</li>
+<li>zlib 1.2.8-3</li>
+</ul>
+
+<h2>
+<a id="how-did-you-get-it-so-small" class="anchor" href="#how-did-you-get-it-so-small" aria-hidden="true"><span class="octicon octicon-link"></span></a>How did you get it so small.</h2>
+
+<p>The biggest win was the removal of Perl at 40MB. Perl is needed for two things on the base Arch Linux install
+OpenSSL (it shouldn't be honestly since it isn't really used other than for one small thing on Windows)
+Some other distros have already fixed this <a href="https://github.com/NixOS/nixpkgs/issues/6763">issue</a> like NixOS 
+Also, see this <a href="https://bbs.archlinux.org/viewtopic.php?id=73200">thread</a> and <a href="https://bugs.archlinux.org/task/14903">this</a>.
+And for <a href="http://www.gnu.org/software/texinfo">texinfo</a> (8 MB) which we patched out with a fake stub.</p>
+
+<p>As well as a lot of aggressively cleaning of info, doc and man pages as well as stripping out the non English international stuff.</p>
+
+<h2>
+<a id="caveats" class="anchor" href="#caveats" aria-hidden="true"><span class="octicon octicon-link"></span></a>Caveats</h2>
+
+<p>This is slimmed down as much as possible while still having full pacman functionality to install any package needed.</p>
+
+<p>Where it might break is all but the English locales have been removed, as well as any terminfo configs that are not xterm based.
+Do not expect any info, documents or manual pages to exist locally either as those have been purged as well.</p>
+
+<p>I am currently experimenting with the removal of zoneinfo and i18n and no problems so far.</p>
+
+<p>Anything you install with pacman should just install fine but if you want to install something from the AUR you are going to need
+to install dev tools first like make, gcc, autoconf etc.</p>
+
+<h2>
+<a id="miscellaneous" class="anchor" href="#miscellaneous" aria-hidden="true"><span class="octicon octicon-link"></span></a>Miscellaneous</h2>
+
+<p>To save on space the pacman databases are purged. You need run pacman -Sy at least once before using pacman.</p>
+
+<div class="highlight highlight-bash"><pre>RUN pacman -Sy</pre></div>
+
+<p>If you are building a package from the AUR you will want to install and uninstall the dev tools like this.</p>
+
+<div class="highlight highlight-bash"><pre>RUN sudo pacman -S --noconfirm yaourt binutils gcc make autoconf fakeroot <span class="pl-k">&amp;&amp;</span> \
+    yaourt -S --noconfirm procps-ng-nosystemd <span class="pl-k">&amp;&amp;</span> \
+    pacman --noconfirm -Rs yaourt binutils gcc make autoconf fakeroot</pre></div>
+
+<p>This image has a user docker with the password docker. You will most likely want to change the password. Just add this line to your Dockerfile.</p>
+
+<div class="highlight highlight-bash"><pre>RUN <span class="pl-c1">echo</span> -e <span class="pl-s"><span class="pl-pds">"</span>docker\nyournewpassword<span class="pl-pds">"</span></span> <span class="pl-k">|</span> passwd docker</pre></div>
+
+<p>The mirrors are optimized for US West  If you want it for your area just add this to the top of your Dockerfile.</p>
+
+<div class="highlight highlight-bash"><pre>RUN pacman -S reflector --noconfirm <span class="pl-k">&amp;&amp;</span> \
+    reflector --verbose -l 5 --protocol https --sort rate --save /etc/pacman.d/mirrorlist <span class="pl-k">&amp;&amp;</span> \
+    pacman -Rs reflector --noconfirm</pre></div>
+
+<p>The different repositories have a lot of really nice packages. To get a list just run package-query like this.</p>
+
+<div class="highlight highlight-bash"><pre>package-query -Sl archassault</pre></div>
+
+<p><img src="http://yantis-scripts.s3.amazonaws.com/screenshot_20150407-023220.jpg" alt=""></p>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/yantis/docker-archlinux-small">Docker-archlinux-small</a> is maintained by <a href="https://github.com/yantis">yantis</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+            <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-61848149-1");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
+  </body>
+</html>
+
