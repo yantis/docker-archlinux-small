@@ -9,6 +9,15 @@ The goal this was to have a more usable base that just worked without having to 
 It also has some amazing repos like [ArchAssault](https://www.archassault.org),
 [BlackArch](http://blackarch.org) and [BBQLinux](http://bbqlinux.org).
 
+## Docker Images Structure
+>[yantis/archlinux-tiny](https://github.com/yantis/docker-archlinux-tiny)
+>>[yantis/archlinux-small](https://github.com/yantis/docker-archlinux-small)
+>>>[yantis/archlinux-small-ssh-hpn](https://github.com/yantis/docker-archlinux-ssh-hpn)
+>>>>[yantis/ssh-hpn-x](https://github.com/yantis/docker-ssh-hpn-x)
+>>>>>[yantis/dynamic-video](https://github.com/yantis/docker-dynamic-video)
+>>>>>>[yantis/virtualgl](https://github.com/yantis/docker-virtualgl)
+>>>>>>>[yantis/wine](https://github.com/yantis/docker-wine)
+
 ## Added Features
 * Lots of linux utlities that were not included in the tiny version. See list below.
 * util-linux & iputils
@@ -27,7 +36,6 @@ It also has some amazing repos like [ArchAssault](https://www.archassault.org),
 * [ArchAssault](https://www.archassault.org) repo for penetration testers and security professionals.
 * [BlackArch](http://blackarch.org) repo for penetration testers and security professionals.
 * [Arch Linux CN](https://github.com/archlinuxcn) repo 
-* [Hercura](http://repo.herecura.eu/herecura-stable/x86_64/) vim-tiny and other goodies.
 * [Reflector] (https://wiki.archlinux.org/index.php/Reflector) mirror optimized for western USA.
 * cower and package-query for interacting with the AUR. 
 * compact (removal of a lot of unneeded stuff that pacman will auto re-install if needed)
