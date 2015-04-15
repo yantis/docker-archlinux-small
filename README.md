@@ -9,7 +9,7 @@ The goal this was to have a more usable base that just worked without having to 
 It also has some amazing repos like [ArchAssault](https://www.archassault.org),
 [BlackArch](http://blackarch.org) and [BBQLinux](http://bbqlinux.org).
 
-## Docker Images Structure
+### Docker Images Structure
 >[yantis/archlinux-tiny](https://github.com/yantis/docker-archlinux-tiny)
 >>[yantis/archlinux-small](https://github.com/yantis/docker-archlinux-small)
 >>>[yantis/archlinux-small-ssh-hpn](https://github.com/yantis/docker-archlinux-ssh-hpn)
