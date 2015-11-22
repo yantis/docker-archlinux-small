@@ -33,7 +33,6 @@ It also has some amazing repos like [ArchAssault](https://www.archassault.org),
 * Arch Linux 64 bit core, extra, community repos
 * Arch Linux 32 bit multilib repo
 * [BBQLinux](http://bbqlinux.org) repo for Android Developers.
-* [ArchAssault](https://www.archassault.org) repo for penetration testers and security professionals.
 * [BlackArch](http://blackarch.org) repo for penetration testers and security professionals.
 * [Arch Linux CN](https://github.com/archlinuxcn) repo 
 * [Reflector] (https://wiki.archlinux.org/index.php/Reflector) mirror optimized for western USA.
@@ -45,101 +44,34 @@ As an example this is a search for chrome with the above repos installed (Screen
 ![](http://yantis-scripts.s3.amazonaws.com/screenshot_20150407-030717.jpg)
 
 ## Added packages
-* diffutils 3.3-2
-* execline 2.1.2.2_21-1
-* expac 4-3
-* file 5.24-1
-* gcc-libs 5.2.0-1
-* gdbm 1.11-1
-* grep 2.21-2
-* gzip 1.6-1
-* htop 1.0.3-2
-* iputils 20140519.fad11dc-1
-* less 479-1
-* libsystemd 223-1
-* lz4 131-1
-* mlocate 0.26-5
-* oh-my-zsh-git 3261.3d5b343-1
-* patch 2.7.5-1
-* pcre 8.37-2
-* procps-ng-nosystemd 3.3.10-1
-* s6 2.1.6.0_30-1
-* sed 4.2.2-3
-* shadow 4.2.1-3
-* sudo 1.8.14.p3-2
-* sysfsutils 2.1.0-9
-* tar 1.28-1
-* util-linux 2.26.2-1
-* vim-tiny 7.4.692-1
-* wget 1.16.3-1
-* zsh 5.0.8-1
-
-## Included from [archlinux-tiny](https://registry.hub.docker.com/u/yantis/archlinux-tiny/)
-* acl 2.2.52-2
-* archassault-keyring 20140202-3
-* archassault-mirrorlist 20150414-1
-* archlinux-keyring 20150605-1
-* archlinuxcn-keyring 20150516-1
-* attr 2.4.47-1
-* bash 4.3.039-1
-* bbqlinux-keyring 20131129-1
-* blackarch-keyring 20140118-3
-* bzip2 1.0.6-5
-* ca-certificates 20150402-1
-* ca-certificates-cacert 20140824-2
-* ca-certificates-mozilla 3.19.2-2
-* ca-certificates-utils 20150402-1
-* coreutils 8.24-1
-* cower 12-2
-* curl 7.43.0-1
-* e2fsprogs 1.42.12-2
-* expat 2.1.0-4
-* filesystem 2015.02-1
-* findutils 4.4.2-6
-* gawk 4.1.3-1
-* gcc-libs 5.2.0-1
-* glibc 2.21-4
-* gmp 6.0.0-2
-* gnupg 2.1.6-1
-* gnutls 3.4.3-1
-* gpgme 1.5.4-1
-* iana-etc 2.30-5
-* keyutils 1.5.9-1
-* krb5 1.13.2-1
-* libarchive 3.1.2-8
-* libassuan 2.2.0-1
-* libcap 2.24-2
-* libffi 3.2.1-1
-* libgcrypt 1.6.3-2
-* libgpg-error 1.19-1
-* libidn 1.30-1
-* libksba 1.3.3-1
-* libldap 2.4.41-1
-* libsasl 2.1.26-7
-* libssh2 1.6.0-1
-* libtasn1 4.5-1
-* libutil-linux 2.26.2-1
-* licenses 20140629-1
-* linux-api-headers 4.0-1
-* localepurge 0.7.3.4-1
-* lzo 2.09-1
-* mpfr 3.1.3.p4-1
-* ncurses 5.9-7
-* nettle 3.1.1-1
-* npth 1.2-1
-* openssl 1.0.2.d-1
-* p11-kit 0.23.1-2
-* package-query 1.6.2-1
-* pacman 4.2.1-2
-* pacman-mirrorlist 20150731-1
-* pinentry 0.9.1-1
-* pth 2.0.7-5
-* readline 6.3.008-1
-* texinfo-fake 1.2-1
-* tzdata 2015e-1
-* xz 5.2.1-1
-* yajl 2.1.0-1
-* zlib 1.2.8-4
+* diffutils
+* execline
+* expac
+* file
+* gcc-libs
+* gdbm
+* grep
+* gzip
+* htop
+* iputils
+* less
+* libsystemd
+* lz4
+* mlocate
+* oh-my-zsh-git
+* patch
+* pcre
+* procps-ng-nosystemd
+* s6
+* sed
+* shadow
+* sudo
+* sysfsutils
+* tar
+* util-linux
+* vim-tiny
+* wget
+* zsh
 
 ## How did you get it so small.
 The biggest win was the removal of Perl at 40MB. Perl is needed for two things on the base Arch Linux install
