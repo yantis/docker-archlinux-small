@@ -8,8 +8,8 @@ MAINTAINER Jonathan Yantis <yantis@yantis.net>
 ADD service /service
 ADD init /init
 
-    # Force a refresh of all the packages even if already up to date.
-RUN pacman -Syyu --noconfirm && \
+# Don't upgrade packages to keep from breaking stuff
+RUN pacman -Syy --noconfirm && \
 
     # Allow passwordedless sudo for now but we will remove it later.
     pacman --noconfirm -S sudo && \
@@ -17,7 +17,7 @@ RUN pacman -Syyu --noconfirm && \
 
     # Install our programs
     pacman --noconfirm -S zsh wget file patch diffutils s6 execline htop \
-            mlocate expac gzip tar shadow util-linux sed grep iputils which && \
+            mlocate expac gzip tar shadow util-linux sed grep awk iputils which && \
 
     # Add in the s6 stuff since it is small for optional usage.
     ln -s /bin/true /service/s6-svscan-log/finish && \
