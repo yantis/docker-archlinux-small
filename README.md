@@ -6,8 +6,7 @@ on Github [docker-archlinux-small](https://github.com/yantis/docker-archlinux-sm
 This small layer adds 27 MB to the 119 MB Arch Linux base container [archlinux-tiny](https://registry.hub.docker.com/u/yantis/archlinux-tiny/)
 Still extremely small compared to other Arch Linux containers with some more features and packages above the tiny one.
 The goal this was to have a more usable base that just worked without having to install dependencies for normal tasks as well as some normal tools I like working with.
-It also has some amazing repos like [BlackArch](https://blackarch.org),
-[BlackArch](http://blackarch.org) and [BBQLinux](http://bbqlinux.org).
+It also has some amazing repos like [BlackArch](https://blackarch.org) and [BBQLinux](http://bbqlinux.org).
 
 ### Docker Images Structure
 >[yantis/archlinux-tiny](https://github.com/yantis/docker-archlinux-tiny)
