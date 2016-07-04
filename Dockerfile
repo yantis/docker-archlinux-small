@@ -16,7 +16,7 @@ RUN pacman -Syy --noconfirm && \
     echo "docker ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers && \
 
     # Install our programs
-    pacman --noconfirm -S zsh wget file patch diffutils s6 execline htop \
+    pacman --noconfirm -S zsh wget file patch diffutils htop \
             mlocate expac gzip tar shadow util-linux sed grep awk iputils which && \
 
     # Add in the s6 stuff since it is small for optional usage.
@@ -24,6 +24,9 @@ RUN pacman -Syy --noconfirm && \
 
     # Install yaourt for easy AUR installs but remove later. To much bloat.
     pacman -S --noconfirm yaourt binutils gcc make autoconf fakeroot && \
+
+    # Install s6 and execline from the AUR otherwise amylum breaks them
+    runuser -l docker -c "yaourt --noconfirm -S aur/s6 aur/execline aur/skalibs" && \
 
     # Install procps without systemd.
     runuser -l docker -c "yaourt --noconfirm -S procps-ng-nosystemd" && \
